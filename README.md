@@ -1,2 +1,2 @@
 # SISCTM-Ixtlán
-Sistema de Control de la Tesorería de Ixtlán de Juárez
+Sistema de Control de la Tesorería Municipal de Ixtlán de Juárez
