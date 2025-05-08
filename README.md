@@ -4,9 +4,6 @@ Sistema de Control de la Tesorería Municipal de Ixtlán de Juárez
 Estructura del Proyecto
 Este proyecto utiliza una estructura organizada y escalable para facilitar el desarrollo en equipo con React. A continuación se explica cada carpeta y archivo:
 
-pgsql
-Copiar
-Editar
 project-root/
 ├── public/
 │   └── index.html
@@ -27,6 +24,9 @@ project-root/
 ├── .gitignore
 ├── package.json
 └── README.md
+
+
+ 
 public/
 Contiene archivos estáticos que se sirven directamente al navegador.
 
