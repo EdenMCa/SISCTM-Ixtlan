@@ -1,83 +1,71 @@
-import React, { useState } from 'react'
-import '../../style/LoginStyle.css'
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import '../../style/LoginStyle.css';
+import Footer from '../../components/Footer';
+import Nav from '../../components/NavLogin';
 
 export const Login = () => {
+  const [usuario, setUsuario] = useState('');
+  const [contraseña, setContraseña] = useState('');
+  const [modalVisible, setModalVisible] = useState(false);
+  const [mensaje, setMensaje] = useState('');
+  const navigate = useNavigate();
 
-    const [modalVisible, setModalVisible] = useState(false);
-    const [mensaje, setMensaje] = useState('');
-  
-    const cerrarModal = () => setModalVisible(false);
-  
-    const mostrarModal = (mensaje) => {
-      setMensaje(mensaje);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (usuario === 'admin' && contraseña === 'admin') {
+      navigate('/Home');
+    } else {
+      setMensaje('Usuario o contraseña incorrectos');
       setModalVisible(true);
-    };
-  
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      const usuario = e.target.nombre_usuario.value;
-      const contraseña = e.target.contraseña.value;
-  
-      if (usuario === 'admin' && contraseña === 'admin') {
-        window.location.href = '/inicio'; // Reemplaza con tu ruta real
-      } else {
-        mostrarModal('Usuario o contraseña incorrectos');
-      }
-    };
+    }
+  };
+
+  const cerrarModal = () => setModalVisible(false);
 
   return (
-    <>
-    <header className="login-header">
-      <div className="logo-left">
-        <img src="/Assets/logo_ixtlan.png" alt="Logo Ixtlán" />
-      </div>
-      <div className="title-center">
-        <h1>SISTEMA DE COBROS MUNICIPAL</h1>
-      </div>
-      <div className="logo-right">
-        <img src="/Assets/logo_me.png" alt="Logo México" />
-      </div>
-    </header>
+    <div className="login-page page-container">
+      <Nav />
 
-    <div className="main-container">
-      <div className="contenedor-inicio-sesion">
-        <h2>Iniciar Sesión</h2>
-        <form id="loginForm" onSubmit={handleSubmit}>
-          <input
-            className="modal-contenido"
-            type="text"
-            name="nombre_usuario"
-            placeholder="Nombre del usuario"
-            required
-          />
-          <input
-            className="modal-contenido"
-            type="password"
-            name="contraseña"
-            placeholder="Contraseña"
-            required
-          />
-          <input className="modal-boton" type="submit" value="INGRESAR" />
-        </form>
-      </div>
-
-      {modalVisible && (
-        <div className="modal" onClick={cerrarModal}>
-          <div className="modal-contenido" onClick={(e) => e.stopPropagation()}>
-            <p>{mensaje}</p>
-            <button className="modal-boton" onClick={cerrarModal}>
-              Confirmar
-            </button>
+      <div className="content-wrap">
+        <div className="main-container">
+          <div className="contenedor-inicio-sesion">
+            <h2>Iniciar Sesión</h2>
+            <form onSubmit={handleSubmit}>
+              <input
+                className="modal-contenido"
+                type="text"
+                placeholder="Nombre del usuario"
+                value={usuario}
+                onChange={(e) => setUsuario(e.target.value)}
+                required
+              />
+              <input
+                className="modal-contenido"
+                type="password"
+                placeholder="Contraseña"
+                value={contraseña}
+                onChange={(e) => setContraseña(e.target.value)}
+                required
+              />
+              <input className="modal-boton" type="submit" value="INGRESAR" />
+            </form>
           </div>
+
+          {modalVisible && (
+            <div className="modal" onClick={cerrarModal}>
+              <div className="modal-box" onClick={(e) => e.stopPropagation()}>
+                <p>{mensaje}</p>
+                <button className="modal-boton" onClick={cerrarModal}>
+                  Confirmar
+                </button>
+              </div>
+            </div>
+          )}
         </div>
-      )}
+      </div>
+      <Footer />
     </div>
-
-    <footer className="footer">
-      <p>© 2025 Ixtlán de Juárez</p>
-    </footer>
-  </>
-
-  )
-}
-
+  );
+};
