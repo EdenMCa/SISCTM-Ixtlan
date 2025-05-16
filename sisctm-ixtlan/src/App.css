@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+/*------------------------------- ESTILOS GLOBALES -------------------------------*/
+:root{
+  --color-input: #2ecc71;
+  --color-verde: #27ae60;
+  --color-botones-nav: green;
+}
+
+.btn-primary{
+  background-color: var(--color-verde) !important;
+}

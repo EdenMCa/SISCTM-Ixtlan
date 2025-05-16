@@ -1,0 +1,31 @@
+    /* Contenedor del Nav */
+.nav-login {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    padding: 20px 20px; /* Igual que el del nav de las páginas */
+    color: black; /* Cambié el color de texto para que sea coherente con las otras páginas */
+}
+
+    /* Estilo para los logos */
+    .logo-left img,
+    .logo-right img {
+        height: 90px;
+    }
+
+    /* Estilo para el título centrado */
+    .title-center {
+        flex-grow: 1;
+        text-align: center;
+    }
+
+    .title-center h1 {
+        font-family: 'DM Sans', sans-serif;
+        font-size: clamp(0.5rem, 5vw, 1.5rem);
+        margin: 0;
+        color: rgb(3, 3, 3);
+        line-height: 1.2;
+        align-content: flex-start;
+    }
+        
