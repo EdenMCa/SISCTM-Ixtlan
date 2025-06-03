@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Nav from '../../components/Nav'; 
-import Footer from '../../components/Footer';
 import '../../style/Cobrar.css';
 
 
@@ -76,8 +74,6 @@ const Cobrar = () => {
 
   return (
     <div className="page-container">
-      <Nav />
-
       <div className="content-wrap">
         {/* Título centrado arriba */}
         <div className="title-section title-top">
@@ -344,8 +340,6 @@ const Cobrar = () => {
           </div>
         </main>
       </div>
-
-      <Footer />
     </div>
   );
 };

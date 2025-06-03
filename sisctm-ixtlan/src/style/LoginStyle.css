@@ -21,17 +21,6 @@ html, body {
   align-items: center;
 }
 
-/* Estilos generales */
-.login-page {
-    background-image: url(../assets/fondo_inicioSesion.jpg);
-    background-color: #f5f5f5;
-    background-size: cover;
-    background-position: center;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
 
 /* Contenedor principal del formulario */
 .main-container {

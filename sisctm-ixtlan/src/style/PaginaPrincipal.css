@@ -1,31 +1,14 @@
-/* pantallaPrincipal.css */
-
-/* Asegura que html y body ocupen toda la altura y sin márgenes */
-body, html {
-    height: 100%; /* Asegura que el contenedor ocupe toda la altura de la ventana */
-    margin: 0; /* Elimina el margen por defecto */
-    display: flex;
-    flex-direction: column; /* Apila los elementos en columna */
-}
-/* Fondo y centrado de contenido */
-.background-image {
-    background-image: url('../assets/fondo_Ixtlán.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 75vh;
+/* Ocupa el espacio disponible */
+.main-content {
+    flex-grow: 1;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+    padding: 20px;
 }
-.main-content {
-    flex-grow: 1; /* Hace que el contenido crezca y ocupe el espacio disponible */
-}
-/* Caja de contenido */
-.content-box {
-    padding: 25px;
-    border-radius: 30px;
-}
+
+
 
 /* Título principal */
 h1 {

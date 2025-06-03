@@ -1,15 +1,28 @@
-import { Routes, Route } from 'react-router-dom';
-import { Login } from './pages/Login/Login';
-import PaginaPrincipal from './pages/PantallaPrincipal/PaginaPrincipal';  
-import Cobrar from './pages/Cobrar/Cobrar';
 import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout';
+import NavLogin from './components/NavLogin';
+import Nav from './components/Nav'; 
+import { Login } from './pages/Login/Login';
+import PaginaPrincipal from './pages/PantallaPrincipal/PaginaPrincipal';
+import Cobrar from './pages/Cobrar/Cobrar';
 
 const AppRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<Login />} />
-      <Route path="/home" element={<PaginaPrincipal />} />
-      <Route path='/Cobrar' element={<Cobrar/>}/>
+
+      <Route element={<Layout nav={NavLogin} backgroundClass="background-login" />}>
+        <Route path="/" element={<Login />} />
+      </Route>
+
+      <Route element={<Layout nav={Nav} backgroundClass="background-home" />}>
+        <Route path="/home" element={<PaginaPrincipal />} />
+      </Route>
+
+      <Route element={<Layout nav={Nav} />}>
+        <Route path="/Cobrar" element={<Cobrar />} />
+      </Route>
+
     </Routes>
   );
 };

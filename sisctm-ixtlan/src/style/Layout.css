@@ -1,0 +1,23 @@
+.page-container {
+  min-height: 100vh; /* asegura que la página ocupe toda la pantalla */
+  display: flex;
+  flex-direction: column;
+}
+
+.content-wrap {
+  flex: 1; /* esto empuja el footer al fondo si hay poco contenido */
+}
+
+.background-login {
+  background-image: url('../assets/fondo_inicioSesion.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.background-home {
+  background-image: url('../assets/fondo_Ixtlán.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
