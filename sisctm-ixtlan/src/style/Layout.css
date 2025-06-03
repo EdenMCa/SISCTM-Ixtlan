@@ -1,13 +1,18 @@
+/* src/style/Layout.css */
+
 .page-container {
-  min-height: 100vh; /* asegura que la página ocupe toda la pantalla */
+  min-height: 100vh; /* ocupa toda la pantalla */
   display: flex;
   flex-direction: column;
 }
 
 .content-wrap {
-  flex: 1; /* esto empuja el footer al fondo si hay poco contenido */
+  flex: 1; /* ocupa todo el espacio entre nav y footer */
+  display: flex; /* convertimos el contenedor en flex para que el contenido interno pueda estirarse */
+  flex-direction: column;
 }
 
+/* Ejemplos de fondo para login o home, ya los tienes */
 .background-login {
   background-image: url('../assets/fondo_inicioSesion.jpg');
   background-size: cover;

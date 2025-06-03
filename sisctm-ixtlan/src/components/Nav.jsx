@@ -24,7 +24,7 @@ const Nav = () => {
         <button onClick={() => window.location.href = '/GestionContribuyentes/gestion_contribuyentes.html'}>
           Contribuyentes
         </button>
-        <button onClick={() => window.location.href = '/Catalogos/menu-catalogos.html'}>
+        <button onClick={() => window.location.href = '/Catalog'}>
           Catálogos
         </button>
       </div>

@@ -6,6 +6,7 @@ import Nav from './components/Nav';
 import { Login } from './pages/Login/Login';
 import PaginaPrincipal from './pages/PantallaPrincipal/PaginaPrincipal';
 import Cobrar from './pages/Cobrar/Cobrar';
+import Catalog from './pages/Catalogo/catalogo';
 
 const AppRoutes = () => {
   return (
@@ -21,6 +22,7 @@ const AppRoutes = () => {
 
       <Route element={<Layout nav={Nav} />}>
         <Route path="/Cobrar" element={<Cobrar />} />
+        <Route path="/Catalog" element={<Catalog/>}/>
       </Route>
 
     </Routes>
