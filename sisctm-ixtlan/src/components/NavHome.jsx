@@ -1,8 +1,7 @@
-import React from "react";
+import React from 'react';
 import '../style/Nav.css'; 
 import logo_ixtlan from '../assets/logo_ixtlan.png';
-
-
+import logo_mex from '../assets/logo_mex.png';
 const Nav = () => {
   return (
     <header>
@@ -15,22 +14,24 @@ const Nav = () => {
         </div>
       </div>
 
-      <nav className="menu-buttons">
-        <button onClick={() => (window.location.href = '/Home')}>
+      <div className="menu-buttons">
+        <button onClick={() => window.location.href = '/Home'}>
           Inicio
         </button>
-        <button onClick={() => (window.location.href = '/Cobrar')}>
+        <button onClick={() => window.location.href = '/Cobrar'}>
           Cobrar
         </button>
-        <button
-          onClick={() => (window.location.href = "/public/GestionContribuyentes/gestion_contribuyentes.html")}
-        >
+        <button onClick={() => window.location.href = '/GestionContribuyentes/gestion_contribuyentes.html'}>
           Contribuyentes
         </button>
-        <button onClick={() => (window.location.href = '/Catalog')}>
+        <button onClick={() => window.location.href = '/Catalog'}>
           Catálogos
         </button>
-      </nav>
+      </div>
+
+      <div className="logo-right">
+        <img src={logo_mex} alt="Logo México" />
+      </div>
     </header>
   );
 };

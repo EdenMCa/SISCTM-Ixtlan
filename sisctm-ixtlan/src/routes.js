@@ -2,7 +2,8 @@ import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import NavLogin from './components/NavLogin';
-import Nav from './components/Nav'; 
+import NavHome from './components/NavHome'; 
+import Nav from './components/Nav';
 import { Login } from './pages/Login/Login';
 import PaginaPrincipal from './pages/PantallaPrincipal/PaginaPrincipal';
 import Cobrar from './pages/Cobrar/Cobrar';
@@ -16,7 +17,7 @@ const AppRoutes = () => {
         <Route path="/" element={<Login />} />
       </Route>
 
-      <Route element={<Layout nav={Nav} backgroundClass="background-home" />}>
+      <Route element={<Layout nav={NavHome} backgroundClass="background-home" />}>
         <Route path="/home" element={<PaginaPrincipal />} />
       </Route>
 
