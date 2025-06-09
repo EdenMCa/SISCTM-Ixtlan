@@ -15,7 +15,7 @@ const AppRoutes = () => {
     <Routes>
 
       <Route element={<Layout nav={NavLogin} backgroundClass="background-login" />}>
-        <Route path="/" element={<Login />} />
+        <Route path="/Login" element={<Login />} />
       </Route>
 
       <Route element={<Layout nav={NavHome} backgroundClass="background-home" />}>
