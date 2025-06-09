@@ -1,13 +1,14 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
-import NavLogin from './components/NavLogin';
-import NavHome from './components/NavHome'; 
-import Nav from './components/Nav';
+import NavLogin from './components/Nav/NavLogin';
+import NavHome from './components/Nav/NavHome'; 
+import Nav from './components/Nav/Nav';
 import { Login } from './pages/Login/Login';
 import PaginaPrincipal from './pages/PantallaPrincipal/PaginaPrincipal';
 import Cobrar from './pages/Cobrar/Cobrar';
 import Catalog from './pages/Catalogo/catalogo';
+import BaseCatastral from './pages/BaseCatastral/BaseCatastral';
 
 const AppRoutes = () => {
   return (
@@ -24,6 +25,7 @@ const AppRoutes = () => {
       <Route element={<Layout nav={Nav} />}>
         <Route path="/Cobrar" element={<Cobrar />} />
         <Route path="/Catalog" element={<Catalog/>}/>
+        <Route path="/BaseCatastral" element={<BaseCatastral/>}/>
       </Route>
 
     </Routes>
