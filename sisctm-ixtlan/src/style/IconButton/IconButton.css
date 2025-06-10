@@ -1,0 +1,44 @@
+.icon-button {
+  border: none;
+  background: none;
+  padding: 0;
+  margin-right: 12px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.icon-button__img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  padding: 6px;
+  transition: filter 0.2s ease, transform 0.2s ease;
+}
+
+.icon-button:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.icon-button:active {
+  transform: translateY(0);
+}
+
+/* Variantes de color sobre el icono */
+.icon-button.edit:hover .icon-button__img {
+  filter: brightness(0.9) sepia(1) hue-rotate(40deg) saturate(8);
+}
+
+.icon-button.delete:hover .icon-button__img {
+  filter: brightness(0.9) sepia(1) hue-rotate(340deg) saturate(8);
+}
+
+.icon-button.view:hover .icon-button__img {
+  filter: brightness(0.9) sepia(1) hue-rotate(90deg) saturate(2);
+}

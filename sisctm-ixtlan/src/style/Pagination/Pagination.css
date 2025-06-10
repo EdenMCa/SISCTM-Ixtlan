@@ -1,0 +1,39 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 1rem;
+}
+
+.btn {
+  background: #f8f9fa;
+  color: #000;
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.btn:hover:not(:disabled) {
+  background: #e9ecef;
+}
+
+.btn:disabled {
+  color: #adb5bd;
+  cursor: not-allowed;
+  background: #f8f9fa;
+}
+
+.active {
+  background: #2ecc71;
+  color: #fff;
+  border-color: #27ae60;
+}
+
+.ellipsis {
+  padding: 0 4px;
+  color: #555;
+}
