@@ -1,54 +1,43 @@
+// src/components/UserMenu/UserMenu.jsx
 import React, { useState, useRef, useEffect } from "react";
-import '../../style/Nav/Nav.css'; 
-import logo_ixtlan from '../../assets/logo_ixtlan.png'; 
-import usuario from '../../assets/UserMenu/usuario.png';
+import usuarioIcon from '../../assets/UserMenu/usuario.png';
+import "../../style/UserMenu/UserMenu.css";
 
-const Nav = () => {
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const dropdownRef = useRef(null);
+const UserMenu = () => {
+  const [open, setOpen] = useState(false);
+  const ref = useRef(null);
 
   useEffect(() => {
-    function handleClickOutside(event) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setDropdownOpen(false);
+    const handleOutside = (e) => {
+      if (ref.current && !ref.current.contains(e.target)) {
+        setOpen(false);
       }
-    }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    };
+    document.addEventListener("mousedown", handleOutside);
+    return () => document.removeEventListener("mousedown", handleOutside);
   }, []);
 
   return (
-    <header>
-      <div className="header-left">
-        <div className="logo-left">
-          <img src={logo_ixtlan} alt="Logo Ixtlán" />
-        </div>
-        <div className="title">
-          <h1>SISTEMA DE COBROS MUNICIPAL</h1>
-        </div>
+    <div className="user-menu" ref={ref}>
+      <img
+        src={usuarioIcon}
+        alt="Usuario"
+        className="user-menu__icon"
+        onClick={() => setOpen(!open)}
+      />
+      <div className={`user-menu__dropdown${open ? " user-menu__dropdown--show" : ""}`}>
+        <button onClick={() => alert('Este botón mostrará la información del usuario.')}>
+          Información del usuario
+        </button>
+        <button onClick={() => alert('Este botón abrirá la configuración del usuario.')}>
+          Editar perfil
+        </button>
+        <button onClick={() => window.location.href = '/'}>
+          Cerrar sesión
+        </button>
       </div>
-
-      <nav className="menu-buttons">
-        <button onClick={() => (window.location.href = '/Home')}>Inicio</button>
-        <button onClick={() => (window.location.href = '/Cobrar')}>Cobrar</button>
-        <button onClick={() => (window.location.href = '/public/GestionContribuyentes/gestion_contribuyentes.html')}>Contribuyentes</button>
-        <button onClick={() => (window.location.href = '/Catalog')}>Catálogos</button>
-        <span className="user-icon" ref={dropdownRef}>
-          <img
-            src={usuario}
-            alt="Usuario"
-            style={{ width: 32, height: 32, borderRadius: "50%", cursor: "pointer" }}
-            onClick={() => setDropdownOpen(!dropdownOpen)}
-          />
-          <div className={`user-dropdown${dropdownOpen ? " show" : ""}`}>
-            <button onClick={() => alert('Información del usuario')}>Información del usuario</button>
-            <button onClick={() => alert('Editar perfil')}>Editar perfil</button>
-            <button onClick={() => window.location.href = '/public/InicioSesion/inicio_sesion.html'}>Cerrar sesión</button>
-          </div>
-        </span>
-      </nav>
-    </header>
+    </div>
   );
 };
 
-export default Nav;
+export default UserMenu;

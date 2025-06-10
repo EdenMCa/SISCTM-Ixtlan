@@ -1,45 +1,64 @@
-.user-icon {
-    display: flex;
-    align-items: center;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    position: relative;
+/* src/components/UserMenu/UserMenu.css */
+
+.user-menu {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
 }
 
-.user-dropdown {
-    position: absolute;
-    top: 50px;
-    right: 0;
-    background: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    min-width: 200px;
-    z-index: 1000;
-    overflow: hidden;
-    display: none;
-    border: 1px solid #e0e0e0;
+.user-menu__icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.user-dropdown.show {
-    display: block;
+.user-menu__icon:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
 }
 
-.user-dropdown button {
-    background: none;
-    border: none;
-    text-align: left;
-    padding: 12px 16px;
-    font-size: 0.95rem;
-    color: #333;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+.user-menu__dropdown {
+  position: absolute;
+  top: 48px; /* ajusta si tu header es más alto */
+  right: 0;
+  display: none;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  min-width: 200px;
+  z-index: 1000;
 }
 
-.user-dropdown button:hover {
-    background-color: #f5f5f5;
-    color: #2e7d32;
+.user-menu__dropdown--show {
+  display: flex;
+}
+
+.user-menu__dropdown button {
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 12px 16px;
+  font-size: 0.95rem;
+  color: #333;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  width: 100%;
+}
+
+.user-menu__dropdown button:hover {
+  background-color: #f5f5f5;
+  color: #2e7d32;
+}
+
+.user-menu__dropdown button:nth-child(2):hover { /* Editar perfil */
+  color: #1976d2;
+}
+
+.user-menu__dropdown button:nth-child(3):hover { /* Cerrar sesión */
+  background-color: #d32f2f;
+  color: #f5f5f5;
 }
