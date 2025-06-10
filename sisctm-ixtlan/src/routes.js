@@ -1,8 +1,9 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
-import NavLogin from './components/NavLogin';
-import Nav from './components/Nav'; 
+import NavLogin from './components/Nav/NavLogin';
+import NavHome from './components/Nav/NavHome'; 
+import Nav from './components/Nav/Nav';
 import { Login } from './pages/Login/Login';
 import PaginaPrincipal from './pages/PantallaPrincipal/PaginaPrincipal';
 import Cobrar from './pages/Cobrar/Cobrar';
@@ -14,17 +15,17 @@ const AppRoutes = () => {
     <Routes>
 
       <Route element={<Layout nav={NavLogin} backgroundClass="background-login" />}>
-        <Route path="/" element={<Login />} />
+        <Route path="/Login" element={<Login />} />
       </Route>
 
-      <Route element={<Layout nav={Nav} backgroundClass="background-home" />}>
+      <Route element={<Layout nav={NavHome} backgroundClass="background-home" />}>
         <Route path="/home" element={<PaginaPrincipal />} />
       </Route>
 
       <Route element={<Layout nav={Nav} />}>
         <Route path="/Cobrar" element={<Cobrar />} />
         <Route path="/Catalog" element={<Catalog/>}/>
-        <Route path="/BaseCatastral" element={<BaseCatastral />} />
+        <Route path="/BaseCatastral" element={<BaseCatastral/>}/>
       </Route>
 
     </Routes>

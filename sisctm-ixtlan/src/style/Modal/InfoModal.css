@@ -1,0 +1,162 @@
+/* Overlay semi-transparente */
+.info-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  padding-top: 2%;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Contenedor de contenido */
+.info-modal-content {
+  background: #fbfefc;
+  border-radius: 14px;
+  padding: 35px 45px;
+  max-width: 740px;
+  width: 90%;
+  box-shadow: 0 8px 32px rgba(40, 167, 69, 0.1);
+  border: 1px solid #e4f3e7;
+  animation: modalEntrance 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  transform-origin: center;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes modalEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Botón de cerrar (X) */
+.info-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  font-size: 28px;
+  color: #7f8c8d;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s, transform 0.3s;
+}
+.info-modal-close:hover {
+  color: #e74c3c;
+  transform: scale(1.1);
+}
+
+/* Título centrado decorado */
+.info-modal-title {
+  margin: 0 0 30px;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #1d3928;
+  text-align: center;
+  position: relative;
+  padding-bottom: 15px;
+}
+.info-modal-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: #28a745;
+  transition: width 0.3s ease;
+}
+.info-modal-title:hover::after {
+  width: 80px;
+}
+
+/* Cuerpo con grid */
+.info-modal-body {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+}
+
+/* Ejemplo de estilo para los párrafos dentro */
+.info-modal-body p {
+  font-size: 1.02rem;
+  color: #44584d;
+  margin: 0;
+  padding: 15px 20px;
+  border-radius: 6px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  cursor: default;
+  overflow: hidden;
+}
+.info-modal-body p::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(40, 167, 69, 0);
+  transition: background 0.3s ease;
+  z-index: 0;
+}
+.info-modal-body p:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(40, 167, 69, 0.08);
+}
+.info-modal-body p:hover::before {
+  background: rgba(40, 167, 69, 0.03);
+}
+.info-modal-body p:active {
+  transform: translateY(0);
+  transition: transform 0.1s ease;
+}
+.info-modal-body p strong {
+  color: #23703c;
+  font-size: 0.96rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+.info-modal-body p strong::before {
+  content: "";
+  width: 6px; height: 6px;
+  background: #28a745;
+  border-radius: 50%;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+.info-modal-body p:hover strong::before {
+  transform: scale(1.6);
+}
+
+/* Scroll personalizado dentro del cuerpo */
+.info-modal-body::-webkit-scrollbar {
+  width: 6px;
+}
+.info-modal-body::-webkit-scrollbar-track {
+  background: rgba(232, 245, 233, 0.3);
+}
+.info-modal-body::-webkit-scrollbar-thumb {
+  background: #c8e6c9;
+  border-radius: 4px;
+}
+.info-modal-body::-webkit-scrollbar-thumb:hover {
+  background: #a5d6a7;
+}

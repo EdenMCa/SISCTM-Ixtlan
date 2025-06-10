@@ -1,14 +1,13 @@
 /* Ocupa el espacio disponible */
 .main-content {
     flex-grow: 1;
+    min-height: 0; /* Evita que el flex hijo crezca más de lo disponible */
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 20px;
+    padding: 0; /* Quita el padding para evitar scroll extra */
 }
-
-
 
 /* Título principal */
 h1 {
