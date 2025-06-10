@@ -53,7 +53,7 @@ const Nav = () => {
             <button id="settingsBtn" onClick={() => alert('Este botón abrirá la configuración del usuario.')}>
               Editar perfil
             </button>
-            <button id="logoutBtn" onClick={() => window.location.href = '/Login'}>
+            <button id="logoutBtn" onClick={() => window.location.href = '/'}>
               Cerrar sesión
             </button>
           </div>
