@@ -3,6 +3,7 @@ import '../../style/Nav/Nav.css';
 import logo_ixtlan from '../../assets/logo_ixtlan.png';
 import UserMenu from '../../components/UserMenu/UserMenu.jsx';
 
+
 const Nav = () => {
   return (
     <header>
@@ -22,8 +23,6 @@ const Nav = () => {
         <button onClick={() => (window.location.href = '/Cobrar')}>Cobrar</button>
         <button onClick={() => (window.location.href = '/public/GestionContribuyentes/gestion_contribuyentes.html')}>Contribuyentes</button>
         <button onClick={() => (window.location.href = '/Catalog')}>Catálogos</button>
-        
-        {/* Componente UserMenu separado */}
         <UserMenu />
       </nav>
     </header>
