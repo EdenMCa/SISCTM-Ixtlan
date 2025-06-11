@@ -33,7 +33,7 @@ const UserMenu = () => {
           <button onClick={() => alert('Editar perfil')}>
             Editar perfil
           </button>
-          <button onClick={() => window.location.href = '/Login'}>
+          <button onClick={() => window.location.href = '/'}>
             Cerrar sesión
           </button>
         </div>
