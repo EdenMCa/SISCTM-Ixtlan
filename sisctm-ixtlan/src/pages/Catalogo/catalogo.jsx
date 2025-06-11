@@ -23,7 +23,7 @@ const Catalog = () => {
             <h2>Cuentas Contables</h2>
           </Link>
 
-          <Link to="/GestionAlquiler" className="card gestion-alquiler">
+          <Link to="/Alquiler" className="card gestion-alquiler">
             <h2>Gestión del Alquiler</h2>
           </Link>
 

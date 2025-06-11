@@ -1,29 +1,29 @@
+// src/components/UserMenu/UserMenu.jsx
 import React, { useState, useRef, useEffect } from "react";
-import usuarioImg from '../../assets/usuario.png';
-import '../../style/UserMenu/UserMenu.css';
+import usuarioIcon from '../../assets/UserMenu/usuario.png';
+import "../../style/UserMenu/UserMenu.css";
 
 const UserMenu = () => {
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
 
-  // Cierra el dropdown al hacer clic fuera
   useEffect(() => {
-    const handleClickOutside = (e) => {
+    const handleOutside = (e) => {
       if (ref.current && !ref.current.contains(e.target)) {
         setOpen(false);
       }
     };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleOutside);
+    return () => document.removeEventListener("mousedown", handleOutside);
   }, []);
 
   return (
     <div className="user-menu" ref={ref}>
       <img
-        src={usuarioImg}
+        src={usuarioIcon}
         alt="Usuario"
         className="user-menu__icon"
-        onClick={() => setOpen(o => !o)}
+        onClick={() => setOpen(!open)}
       />
       {open && (
         <div className="user-menu__dropdown">
