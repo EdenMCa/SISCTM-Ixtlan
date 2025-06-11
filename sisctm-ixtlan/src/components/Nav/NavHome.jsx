@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../style/Nav/Nav.css'; 
+import '../../style/Nav/Nav.css';
 import logo_ixtlan from '../../assets/logo_ixtlan.png';
 import logo_mex from '../../assets/logo_mex.png';
 import UserMenu from '../../components/UserMenu/UserMenu.jsx';
@@ -29,7 +29,7 @@ const Nav = () => {
         <button onClick={() => window.location.href = '/Catalog'}>
           Catálogos
         </button>
-                      <UserMenu />
+        <UserMenu />
 
       </div>
 

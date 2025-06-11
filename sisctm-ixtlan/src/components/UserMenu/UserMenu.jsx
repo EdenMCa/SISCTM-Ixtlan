@@ -25,19 +25,26 @@ const UserMenu = () => {
         className="user-menu__icon"
         onClick={() => setOpen(!open)}
       />
-      {open && (
-        <div className="user-menu__dropdown">
-          <button onClick={() => alert('Información del usuario')}>
-            Información del usuario
-          </button>
-          <button onClick={() => alert('Editar perfil')}>
-            Editar perfil
-          </button>
-          <button onClick={() => window.location.href = '/'}>
-            Cerrar sesión
-          </button>
-        </div>
-      )}
+      <div className={`user-menu__dropdown${open ? " user-menu__dropdown--show" : ""}`}>
+        <button
+          id="userInfoBtn"
+          onClick={() => alert('Este botón mostrará la información del usuario.')}
+        >
+          Información del usuario
+        </button>
+        <button
+          id="settingsBtn"
+          onClick={() => alert('Este botón abrirá la configuración del usuario.')}
+        >
+          Editar perfil
+        </button>
+        <button
+          id="logoutBtn"
+          onClick={() => (window.location.href = '/')}
+        >
+          Cerrar sesión
+        </button>
+      </div>
     </div>
   );
 };
