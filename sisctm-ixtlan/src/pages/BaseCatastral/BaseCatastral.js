@@ -92,8 +92,11 @@ const GestionBaseCatastral = () => {
     };
 
     const columns = [
-        { key: 'claveCatastral', label: 'Clave catastral' },
+      { key: 'claveCatastral', label: 'Clave catastral' },
         { key: 'nombrePropietario', label: 'Nombre propietario' },
+        { key: 'ubicacion', label: 'Ubicación' },
+        { key: 'baseCatastral', label: 'Base catastral' },
+        { key: 'usoSuelo', label: 'Uso de suelo' },
     ];
 
     const acciones = [
