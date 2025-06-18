@@ -15,6 +15,11 @@ import IconButton from '../../components/IconButton/IconButton.jsx';
 const initialData = [
   { id: 1, nombre: 'Juan Pérez', direccion: 'Calle 123', telefono: '555-1234' },
   { id: 2, nombre: 'María López', direccion: 'Avenida 456', telefono: '555-5678' },
+  { id: 3, nombre: 'Carlos García', direccion: 'Boulevard 789', telefono: '555-8765' },
+  { id: 4, nombre: 'Ana Martínez', direccion: 'Plaza Central', telefono: '555-4321' },
+  { id: 5, nombre: 'Luis Fernández', direccion: 'Calle Secundaria', telefono: '555-6789' },
+  { id: 6, nombre: 'Sofía Torres', direccion: 'Avenida Principal', telefono: '555-3456' },
+  { id: 7, nombre: 'Pedro Ramírez', direccion: 'Calle del Sol', telefono: '555-2345' },
   // ... más datos
 ];
 

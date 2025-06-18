@@ -19,7 +19,7 @@
 .title-section__bar {
   width: 60px;
   height: 4px;
-  background-color: #007bff;
+  background-color: var(--color-title-line);
   margin: 0 auto;
   border-radius: 2px;
 }

@@ -14,6 +14,7 @@
 .title-top {
   text-align: center;
   margin: 1rem 0;
+
 }
 
 /* Asegura que el hr esté centrado y de buen ancho */
@@ -50,15 +51,15 @@ body {
 
 .title-section h2 {
   font-size: 1.8rem;
-  color: #2c3e50;
   margin-bottom: 0.5rem;
-  font-weight: 600;
+  font-weight: 600; 
+  color: var(--color-title);
 }
 
 .title-line {
   width: 15%;
   height: 3px;
-  background: #2ecc71;
+  background-color: var(--color-title-line);
   border: none;
   margin: 0 auto;
 }
@@ -67,7 +68,7 @@ body {
 .form-container {
   padding: 2rem;
   border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--box-shadow-form-container);
   width: 100%;
   overflow: visible;
   max-height: none;
@@ -98,24 +99,25 @@ body {
   display: block;
   margin-bottom: 0.5rem;
   font-weight: 500;
-  color: #000000;
+  color: var(--color-form-group-label);
 }
 
 .form-group input,
 .form-group select {
   width: 100%;
   padding: 0.75rem;
-  border: 1px solid #ddd;
+  border: 1px solid var(--color-form-border);
   border-radius: 4px;
   font-size: 0.9rem;
   transition: all 0.3s ease;
+
 }
 
 .form-group input:focus,
 .form-group select:focus {
-  outline: none;
-  border-color: #2ecc71;
-  box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.2);
+  outline: none;  
+  border-color: var(--color-input-focus);
+  box-shadow: var(--box-shadow-input-focus);
 }
 
 .form-actions {

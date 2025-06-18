@@ -41,8 +41,30 @@
 :root{
   --color-input: #2ecc71;
   --color-verde: #27ae60;
-  --color-botones-nav: green;
+  /*body*/
+
+  /* ===== ESTILOS DE TABLA ===== */
+  --color-table-bg: #fff;
+  --box-shadow-table-container: 0 0 20px rgba(0, 0, 0, 0.1);
+  --color-table-header-gradient-start: #2ecc71;
+  --color-table-header-gradient-end: #27ae60;
+  --color-table-header-text: #fff;
+
+  /* Filas del cuerpo de la tabla */
+  --color-table-row-border: #ecf0f1;
+
+  /* Zebra striping para mejor legibilidad */
+  --color-table-row-zebra: #f9f9f9;
+
+  /* Borde destacado en última fila */
+  --color-table-row-border-last: #2ecc71;
+
+  /* Efecto hover para filas */
+  --color-table-row-hover: #f1f8fe;
+
+  /* ===== BOTONES DE ACCIÓN ===== */
   
+
 }
 
 .btn-primary{
