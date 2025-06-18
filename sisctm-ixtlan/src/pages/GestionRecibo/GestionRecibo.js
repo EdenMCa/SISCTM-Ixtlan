@@ -4,28 +4,42 @@ import '../../style/BaseCatastral/BaseCatastral.css';
 import TitleSection from '../../components/TitleSection';
 import SearchInput from '../../components/SearchInput';
 import Table from '../../components/TableModule/TableModule';
+import Pagination from '../../components/Pagination/Pagination';
 
-const GestionRecibo = () => {
-    // Datos base simulados
+const GestionRecibos = () => {
+    // Datos simulados
     const initialData = [
         {
-
+            folio: "FOLIO-001",
+            fecha: "2023-10-01",
+            contribuyente: "Juan Pérez",
+            ejercicio: "2023",
+            periodo: "Enero - Marzo",
+            concepto: "Pago de impuesto predial",
+            total: 1500,
+            formaPago: "Efectivo",
         },
         {
-
-        }
+            folio: "FOLIO-002",
+            fecha: "2023-10-02",
+            contribuyente: "María López",
+            ejercicio: "2023",
+            periodo: "Abril - Junio",
+            concepto: "Pago de agua potable",
+            total: 800,
+            formaPago: "Tarjeta de crédito"
+        },
     ];
 
-    const [bases, setBases] = useState(initialData);
     const [searchTerm, setSearchTerm] = useState('');
+    const [currentPage, setCurrentPage] = useState(1);
+    const rowsPerPage = 5;
 
-    // Maneja el cambio del input de búsqueda
     const handleSearchChange = e => {
         setSearchTerm(e.target.value);
+        setCurrentPage(1);
     };
 
-
-    // Definimos las columnas que queremos mostrar en la tabla
     const columns = [
         { key: 'folio', label: 'Folio' },
         { key: 'fecha', label: 'Fecha' },
@@ -35,12 +49,43 @@ const GestionRecibo = () => {
         { key: 'concepto', label: 'Concepto' },
         { key: 'total', label: 'Total' },
         { key: 'formaPago', label: 'Forma de pago' },
-        { key: 'acciones', label: 'Acciones' }
     ];
-    
-return (
+
+    const acciones = [
+        {
+            variant: 'edit',
+            title: 'Editar',
+            onClick: (row) => {
+                console.log('Editar:', row);
+            },
+        },
+        {
+            variant: 'delete',
+            title: 'Eliminar',
+            onClick: (row) => {
+                console.log('Eliminar:', row);
+            },
+        },
+        {
+            variant: 'view',
+            title: 'Ver',
+            onClick: (row) => {
+                console.log('Ver:', row);
+            },
+        },
+    ];
+
+    const filteredData = initialData.filter(item =>
+        item.folio.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
+    const paginatedData = filteredData.slice(
+        (currentPage - 1) * rowsPerPage,
+        currentPage * rowsPerPage
+    );
+
+    return (
         <>
-            {/* Título principal de la sección */}
             <div className="gestion-recibo-container">
                 <TitleSection
                     title="Gestión de Recibos"
@@ -48,8 +93,6 @@ return (
                 />
             </div>
 
-
-            {/* Encabezado con el buscador y el botón de agregar */}
             <div className="gestion-recibo-wrapper">
                 <div className="gestion-recibo-header">
                     <SearchInput
@@ -57,17 +100,23 @@ return (
                         value={searchTerm}
                         onChange={handleSearchChange}
                     />
-
                 </div>
 
-                {/* Tabla con los datos */}
                 <div className="gestion-recibo-table-container">
-                    <Table columns={columns} data={initialData} />
+                    <Table columns={columns} data={paginatedData} actions={acciones} />
+                </div>
+
+                <div className="gestion-recibo-pagination">
+                    <Pagination
+                        totalItems={filteredData.length}
+                        rowsPerPage={rowsPerPage}
+                        currentPage={currentPage}
+                        onPageChange={setCurrentPage}
+                    />
                 </div>
             </div>
-
-
         </>
     );
 };
-export default GestionRecibo;
+
+export default GestionRecibos;
