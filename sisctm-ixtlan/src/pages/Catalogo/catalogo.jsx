@@ -15,7 +15,7 @@ const Catalog = () => {
             <h2>Corte de Caja</h2>
           </Link>
 
-          <Link to="/GestionRecibos" className="card gestion-recibos">
+          <Link to="/GestionRecibo" className="card gestion-recibos">
             <h2>Gestión de Recibos</h2>
           </Link>
 
