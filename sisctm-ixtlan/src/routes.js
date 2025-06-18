@@ -10,6 +10,7 @@ import Cobrar from './pages/Cobrar/Cobrar';
 import Catalog from './pages/Catalogo/catalogo';
 import BaseCatastral from './pages/BaseCatastral/BaseCatastral';
 import Alquiler from './pages/Alquiler/Alquiler';
+import CuentasContables from './pages/CuentasContables/CuentasContables';
 
 const AppRoutes = () => {
   return (
@@ -28,6 +29,7 @@ const AppRoutes = () => {
         <Route path="/Catalog" element={<Catalog/>}/>
         <Route path="/BaseCatastral" element={<BaseCatastral/>}/>
         <Route path="/Alquiler" element={<Alquiler />} />
+        <Route path="/CuentasContables" element={<CuentasContables />} />
 
       </Route>
 

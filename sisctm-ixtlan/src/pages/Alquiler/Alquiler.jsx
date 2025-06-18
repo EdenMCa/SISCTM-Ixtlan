@@ -1,219 +1,193 @@
+// Importación de React y hooks necesarios
 import React, { useState } from 'react';
+import '../../style/BaseCatastral/BaseCatastral.css';
+import TitleSection from '../../components/TitleSection';
+import AddButton from '../../components/Button/AddButton';
+import SearchInput from '../../components/SearchInput';
+import Table from '../../components/TableModule/TableModule';
+import Pagination from '../../components/Pagination/Pagination';
+import iconEditar from '../../assets/Icons/editor.png';
+import iconEliminar from '../../assets/Icons/eliminar.png';
+import iconVer from '../../assets/Icons/expediente.png';
 
-// Componentes importados
-import TitleSection from '../../components/TitleSection.jsx';
-import SearchInput from '../../components/SearchInput.jsx';
-import AddButton from '../../components/Button/AddButton.jsx';
-import Table from '../../components/TableModule/TableModule.jsx';
-import Pagination from '../../components/Pagination/Pagination.jsx';
-import Modal from '../../components/Modal/Modal.jsx';
-import InfoModal from '../../components/Modal/InfoModal.jsx';
 
+const GestionBaseCatastral = () => {
+    // Datos base simulados
+    const initialData = [
+        {
+            claveCatastral: "CLAVE-123",
+            nombrePropietario: "Juan Pérez",
+            ubicacion: "Calle Falsa 123",
+            baseCatastral: "1500 m²",
+            valorTerreno: 50000,
+            valorConstruccion: 75000,
+            impuestoCalculado: 1250,
+            fechaAvaluo: "2023-05-10",
+            historialAvaluos: "2021,2022",
+            usoSuelo: "habitacional"
+        },
+        {
+            claveCatastral: "CLAVE-456",
+            nombrePropietario: "María López",
+            ubicacion: "Av. Siempre Viva 742",
+            baseCatastral: "2000 m²",
+            valorTerreno: 60000,
+            valorConstruccion: 90000,
+            impuestoCalculado: 1500,
+            fechaAvaluo: "2023-06-15",
+            historialAvaluos: "2022",
+            usoSuelo: "comercial"
+        },
+        {
+            claveCatastral: "CLAVE-123",
+            nombrePropietario: "Juan Pérez",
+            ubicacion: "Calle Falsa 123",
+            baseCatastral: "1500 m²",
+            valorTerreno: 50000,
+            valorConstruccion: 75000,
+            impuestoCalculado: 1250,
+            fechaAvaluo: "2023-05-10",
+            historialAvaluos: "2021,2022",
+            usoSuelo: "habitacional"
+        },
+        {
+            claveCatastral: "CLAVE-456",
+            nombrePropietario: "María López",
+            ubicacion: "Av. Siempre Viva 742",
+            baseCatastral: "2000 m²",
+            valorTerreno: 60000,
+            valorConstruccion: 90000,
+            impuestoCalculado: 1500,
+            fechaAvaluo: "2023-06-15",
+            historialAvaluos: "2022",
+            usoSuelo: "comercial"
+        },
+        {
+            claveCatastral: "CLAVE-123",
+            nombrePropietario: "Juan Pérez",
+            ubicacion: "Calle Falsa 123",
+            baseCatastral: "1500 m²",
+            valorTerreno: 50000,
+            valorConstruccion: 75000,
+            impuestoCalculado: 1250,
+            fechaAvaluo: "2023-05-10",
+            historialAvaluos: "2021,2022",
+            usoSuelo: "habitacional"
+        },
+        {
+            claveCatastral: "CLAVE-456",
+            nombrePropietario: "María López",
+            ubicacion: "Av. Siempre Viva 742",
+            baseCatastral: "2000 m²",
+            valorTerreno: 60000,
+            valorConstruccion: 90000,
+            impuestoCalculado: 1500,
+            fechaAvaluo: "2023-06-15",
+            historialAvaluos: "2022",
+            usoSuelo: "comercial"
+        },
+    ];
 
-// Datos iniciales (puedes traerlos de API o json)
-const initialData = [
-  { id: 1, nombre: 'Juan Pérez', direccion: 'Calle 123', telefono: '555-1234' },
-  { id: 2, nombre: 'María López', direccion: 'Avenida 456', telefono: '555-5678' },
-  { id: 3, nombre: 'Carlos García', direccion: 'Boulevard 789', telefono: '555-8765' },
-  { id: 4, nombre: 'Ana Martínez', direccion: 'Plaza Central', telefono: '555-4321' },
-  { id: 5, nombre: 'Luis Fernández', direccion: 'Calle Secundaria', telefono: '555-6789' },
-  { id: 6, nombre: 'Sofía Torres', direccion: 'Avenida Principal', telefono: '555-3456' },
-  { id: 7, nombre: 'Pedro Ramírez', direccion: 'Calle del Sol', telefono: '555-2345' },
-  // ... más datos
+    const [bases, setBases] = useState(initialData);
+    const [searchTerm, setSearchTerm] = useState('');
+    const [currentPage, setCurrentPage] = useState(1);
+    const rowsPerPage = 5;
+
+    // Maneja el cambio del input de búsqueda
+    const handleSearchChange = e => {
+        setSearchTerm(e.target.value);
+        setCurrentPage(1); // Reinicia la página cuando se busca
+    };
+
+    // Lógica para agregar un nuevo registro
+    const handleAdd = () => {
+        console.log("Agregar nuevo registro");
+    };
+
+    // Definimos las columnas que queremos mostrar en la tabla
+    const columns = [
+        { key: 'claveCatastral', label: 'Clave catastral' },
+        { key: 'nombrePropietario', label: 'Nombre propietario' },
+        { key: 'ubicacion', label: 'Ubicación' },
+        { key: 'baseCatastral', label: 'Base catastral' },
+        { key: 'usoSuelo', label: 'Uso de suelo' },
+    ];
+
+    const acciones = [
+  {
+    variant: 'edit',
+    title: 'Editar',
+    onClick: (row) => {
+      console.log('Editar:', row);
+    },
+  },
+  {
+    variant: 'delete',
+    title: 'Eliminar',
+    onClick: (row) => {
+      console.log('Eliminar:', row);
+    },
+  },
+  {
+    variant: 'view',
+    title: 'Ver',
+    onClick: (row) => {
+      console.log('Ver:', row);
+    },
+  },
 ];
 
-const BaseCatastralPage = () => {
-  // Estados generales
-  const [data, setData] = useState(initialData);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [currentPage, setCurrentPage] = useState(1);
-  const rowsPerPage = 5;
+    // Filtro de búsqueda
+    const filteredData = bases.filter(base =>
+        base.claveCatastral.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        base.nombrePropietario.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
-  // Modal control
-  const [modalOpen, setModalOpen] = useState(false);
-  const [modalTitle, setModalTitle] = useState('');
-  const [modalMode, setModalMode] = useState('add'); // 'add' | 'edit'
-  const [selectedRow, setSelectedRow] = useState(null);
+    // Paginación
+    const paginatedData = filteredData.slice(
+        (currentPage - 1) * rowsPerPage,
+        currentPage * rowsPerPage
+    );
 
-  // Info modal para ver
-  const [infoModalOpen, setInfoModalOpen] = useState(false);
-  const [infoData, setInfoData] = useState(null);
+    return (
+        <>
+            {/* Título principal de la sección */}
+            <div className="gestion-base-catastral-container">
+                <TitleSection
+                    title="Gestión de Base Catastral"
+                    subtitle=""
+                />
+            </div>
 
-  // Datos filtrados y paginados
-  const filteredData = data.filter(item =>
-    item.nombre.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    item.direccion.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    item.telefono.includes(searchTerm)
-  );
+            {/* Encabezado con el buscador y el botón de agregar */}
+            <div className="gestion-base-catastral-wrapper">
+                <div className="gestion-base-catastral-header">
+                    <SearchInput
+                        placeholder="Buscar por clave catastral o nombre"
+                        value={searchTerm}
+                        onChange={handleSearchChange}
+                    />
 
-  const totalPages = Math.ceil(filteredData.length / rowsPerPage);
-  const paginatedData = filteredData.slice(
-    (currentPage - 1) * rowsPerPage,
-    currentPage * rowsPerPage
-  );
+                    <AddButton onClick={handleAdd} />
+                </div>
 
-  // Columnas tabla
-  const columns = [
-    { key: 'nombre', label: 'Nombre' },
-    { key: 'direccion', label: 'Dirección' },
-    { key: 'telefono', label: 'Teléfono' }
-  ];
+                {/* Tabla con los datos paginados */}
+                <div className="gestion-base-catastral-table-container">
+                    <Table columns={columns} data={paginatedData} actions={acciones} />
+                </div>
 
-  // Abrir modal para agregar
-  const handleAddClick = () => {
-    setModalTitle('Agregar registro');
-    setModalMode('add');
-    setSelectedRow(null);
-    setModalOpen(true);
-  };
-
-  // Abrir modal para editar
-  const handleEditClick = (row) => {
-    setModalTitle('Editar registro');
-    setModalMode('edit');
-    setSelectedRow(row);
-    setModalOpen(true);
-  };
-
-  // Abrir modal para ver
-  const handleViewClick = (row) => {
-    setInfoData(row);
-    setInfoModalOpen(true);
-  };
-
-  // Eliminar registro
-  const handleDeleteClick = (row) => {
-    if(window.confirm(`¿Eliminar registro de ${row.nombre}?`)) {
-      setData(data.filter(item => item.id !== row.id));
-    }
-  };
-
-  // Guardar datos (Agregar o Editar)
-  const handleModalConfirm = () => {
-    const form = document.getElementById('modal-form');
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      return;
-    }
-
-    const formData = new FormData(form);
-    const nombre = formData.get('nombre').trim();
-    const direccion = formData.get('direccion').trim();
-    const telefono = formData.get('telefono').trim();
-
-    if (modalMode === 'add') {
-      // Agregar nuevo con id autoincremental
-      const newId = data.length > 0 ? Math.max(...data.map(d => d.id)) + 1 : 1;
-      setData([...data, { id: newId, nombre, direccion, telefono }]);
-    } else if (modalMode === 'edit' && selectedRow) {
-      // Editar registro existente
-      setData(data.map(item =>
-        item.id === selectedRow.id ? { ...item, nombre, direccion, telefono } : item
-      ));
-    }
-
-    setModalOpen(false);
-  };
-
-  // Cambiar página paginación
-  const handlePageChange = (page) => {
-    if(page < 1 || page > totalPages) return;
-    setCurrentPage(page);
-  };
-
-  return (
-    <div className="container">
-      <TitleSection title="Base Catastral" subtitle="Gestión de registros" />
-
-      <div className="controls-row">
-        <SearchInput
-          placeholder="Buscar por nombre, dirección o teléfono"
-          value={searchTerm}
-          onChange={e => {
-            setSearchTerm(e.target.value);
-            setCurrentPage(1);
-          }}
-        />
-        <AddButton onClick={handleAddClick} />
-      </div>
-
-      <Table
-        columns={columns}
-        data={paginatedData}
-        actions={[
-          { variant: 'view', title: 'Ver', onClick: handleViewClick },
-          { variant: 'edit', title: 'Editar', onClick: handleEditClick },
-          { variant: 'delete', title: 'Eliminar', onClick: handleDeleteClick }
-        ]}
-      />
-
-      <Pagination
-        totalItems={filteredData.length}
-        rowsPerPage={rowsPerPage}
-        currentPage={currentPage}
-        onPageChange={handlePageChange}
-      />
-
-      {/* Modal para Agregar y Editar */}
-      <Modal
-        isOpen={modalOpen}
-        title={modalTitle}
-        onConfirm={handleModalConfirm}
-        onCancel={() => setModalOpen(false)}
-        confirmDisabled={false}
-      >
-        <form id="modal-form" className="modal-form" onSubmit={e => e.preventDefault()}>
-          <div className="form-group">
-            <label htmlFor="nombre">Nombre</label>
-            <input
-              name="nombre"
-              id="nombre"
-              type="text"
-              defaultValue={selectedRow ? selectedRow.nombre : ''}
-              required
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="direccion">Dirección</label>
-            <input
-              name="direccion"
-              id="direccion"
-              type="text"
-              defaultValue={selectedRow ? selectedRow.direccion : ''}
-              required
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="telefono">Teléfono</label>
-            <input
-              name="telefono"
-              id="telefono"
-              type="text"
-              defaultValue={selectedRow ? selectedRow.telefono : ''}
-              pattern="\d{3}-\d{4}"
-              title="Formato esperado: 555-1234"
-              required
-            />
-          </div>
-        </form>
-      </Modal>
-
-      {/* Modal para Visualizar */}
-      <InfoModal
-        isOpen={infoModalOpen}
-        onClose={() => setInfoModalOpen(false)}
-        title="Detalle del registro"
-      >
-        {infoData && (
-          <div className="info-details">
-            <p><strong>Nombre:</strong> {infoData.nombre}</p>
-            <p><strong>Dirección:</strong> {infoData.direccion}</p>
-            <p><strong>Teléfono:</strong> {infoData.telefono}</p>
-          </div>
-        )}
-      </InfoModal>
-    </div>
-  );
+                {/* Componente de paginación */}
+                <div className="gestion-base-catastral-pagination">
+                    <Pagination
+                        totalItems={filteredData.length}
+                        rowsPerPage={rowsPerPage}
+                        currentPage={currentPage}
+                        onPageChange={setCurrentPage}
+                    />
+                </div>
+            </div>
+        </>
+    );
 };
 
-export default BaseCatastralPage;
+export default GestionBaseCatastral;
