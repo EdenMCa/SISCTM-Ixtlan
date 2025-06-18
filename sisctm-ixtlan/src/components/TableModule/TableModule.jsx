@@ -4,7 +4,7 @@ import '../../style/TableModule/TableModule.css';
 
 
 const Table = ({ columns, data, actions }) => (
-  <table className="table">
+  <table className="table-container">
     <thead>
       <tr>
         {columns.map(({ key, label }) => (

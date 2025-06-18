@@ -11,7 +11,6 @@ const SearchInput = ({ placeholder, value, onChange }) => {
         value={value}
         onChange={onChange}
       />
-      <span className="search-input__icon">&#128269;</span> {/* ícono de lupa */}
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../style/Button/Button.css';
+import '../../style/Button/AddButton.css'; 
 
 const AddButton = ({ onClick, children = 'Agregar' }) => {
   return (
