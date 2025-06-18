@@ -2,7 +2,6 @@
 .table-container {
   width: 100%;
   overflow-x: auto;
-  background: #fff;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   margin: 1rem 0;
@@ -30,9 +29,10 @@
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  border: none; /* quitar líneas */
+  border: 1px solid var(--color-verde); /* ← borde verde */
   background-color: var(--color-verde);
 }
+
 
 /* Bordes redondeados en los extremos del encabezado */
 .table-container th:first-child {

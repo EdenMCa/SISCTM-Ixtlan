@@ -27,3 +27,30 @@
   margin-left: 0;
 }
 /* Fin de estilos para la barra de agregar y buscar */
+
+.gestion-base-catastral-wrapper {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.gestion-base-catastral-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+.gestion-base-catastral-header .search-input {
+  max-width: 350px;
+  width: 100%;
+}
+
+.gestion-base-catastral-header .btn-agregar {
+  margin-left: 24px;
+}
+
+.gestion-base-catastral-table-container {
+  width: 100%;
+}

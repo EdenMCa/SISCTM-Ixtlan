@@ -49,7 +49,7 @@ const GestionBaseCatastral = () => {
         console.log("Agregar nuevo registro");
     };
 
-     // Definimos las columnas que queremos mostrar en la tabla
+    // Definimos las columnas que queremos mostrar en la tabla
     const columns = [
         { key: 'claveCatastral', label: 'Clave catastral' },
         { key: 'nombrePropietario', label: 'Nombre propietario' },
@@ -74,20 +74,26 @@ const GestionBaseCatastral = () => {
                 />
             </div>
 
+
             {/* Encabezado con el buscador y el botón de agregar */}
-            <div className="gestion-base-catastral-header">
-                <SearchInput
-                    placeholder="Buscar por clave catastral o nombre"
-                    value={searchTerm}
-                    onChange={handleSearchChange}
-                />
-                <AddButton onClick={handleAdd} />
+            <div className="gestion-base-catastral-wrapper">
+                <div className="gestion-base-catastral-header">
+                    <SearchInput
+                        placeholder="Buscar por clave catastral o nombre"
+                        value={searchTerm}
+                        onChange={handleSearchChange}
+                    />
+
+                    <AddButton onClick={handleAdd} />
+                </div>
+
+                {/* Tabla con los datos */}
+                <div className="gestion-base-catastral-table-container">
+                    <Table columns={columns} data={initialData} />
+                </div>
             </div>
 
-            {/* Tabla con los datos */}
-            <div className="gestion-base-catastral-tabla">
-                <Table columns={columns} data={initialData} />
-            </div>
+
         </>
     );
 };
