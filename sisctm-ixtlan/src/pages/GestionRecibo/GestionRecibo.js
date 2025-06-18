@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import '../../style/BaseCatastral/BaseCatastral.css';
 import TitleSection from '../../components/TitleSection';
-import AddButton from '../../components/Button/AddButton';
 import SearchInput from '../../components/SearchInput';
 import Table from '../../components/TableModule/TableModule';
 
