@@ -10,6 +10,7 @@ import Cobrar from './pages/Cobrar/Cobrar';
 import Catalog from './pages/Catalogo/catalogo';
 import BaseCatastral from './pages/BaseCatastral/BaseCatastral';
 import Alquiler from './pages/Alquiler/Alquiler';
+import GestionRecibo from './pages/GestionRecibo/GestionRecibo';
 
 const AppRoutes = () => {
   return (
@@ -26,6 +27,7 @@ const AppRoutes = () => {
       <Route element={<Layout nav={Nav} />}>
         <Route path="/Cobrar" element={<Cobrar />} />
         <Route path="/Catalog" element={<Catalog/>}/>
+        <Route path="/GestionRecibo" element={<GestionRecibo/>}/>
         <Route path="/BaseCatastral" element={<BaseCatastral/>}/>
         <Route path="/Alquiler" element={<Alquiler />} />
 

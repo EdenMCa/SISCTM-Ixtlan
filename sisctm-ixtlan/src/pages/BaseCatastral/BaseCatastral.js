@@ -6,9 +6,7 @@ import AddButton from '../../components/Button/AddButton';
 import SearchInput from '../../components/SearchInput';
 import Table from '../../components/TableModule/TableModule';
 import Pagination from '../../components/Pagination/Pagination';
-import iconEditar from '../../assets/Icons/editor.png';
-import iconEliminar from '../../assets/Icons/eliminar.png';
-import iconVer from '../../assets/Icons/expediente.png';
+
 
 
 const GestionBaseCatastral = () => {
@@ -88,7 +86,7 @@ const GestionBaseCatastral = () => {
         },
     ];
 
-    const [bases, setBases] = useState(initialData);
+    const [bases] = useState(initialData);
     const [searchTerm, setSearchTerm] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
     const rowsPerPage = 5;
