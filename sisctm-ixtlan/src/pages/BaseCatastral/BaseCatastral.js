@@ -37,7 +37,7 @@ const GestionBaseCatastral = () => {
         },
     ];
 
-    const [bases] = useState(initialData);
+    const [bases, setBases] = useState(initialData);
     const [searchTerm, setSearchTerm] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
     const [modalAbierto, setModalAbierto] = useState(false); // Nuevo estado para el modal
