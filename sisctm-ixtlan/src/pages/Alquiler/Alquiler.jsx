@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 // Componentes importados
 import TitleSection from '../../components/TitleSection.jsx';
@@ -8,7 +8,6 @@ import Table from '../../components/TableModule/TableModule.jsx';
 import Pagination from '../../components/Pagination/Pagination.jsx';
 import Modal from '../../components/Modal/Modal.jsx';
 import InfoModal from '../../components/Modal/InfoModal.jsx';
-import IconButton from '../../components/IconButton/IconButton.jsx';
 
 
 // Datos iniciales (puedes traerlos de API o json)

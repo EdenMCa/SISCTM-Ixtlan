@@ -1,0 +1,56 @@
+/* ===== ESTILOS GENERALES ===== */
+/* Reset básico para eliminar márgenes y padding predeterminados */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* Estilos para la barra de agregar y buscar */
+.gestion-base-catastral-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 32px 0 16px 0; 
+  width: 100%;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+.gestion-base-catastral-header .search-input {
+  max-width: 350px;
+  width: 100%;
+}
+
+.gestion-base-catastral-header .btn-agregar {
+  margin-left: 0;
+}
+/* Fin de estilos para la barra de agregar y buscar */
+
+.gestion-base-catastral-wrapper {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.gestion-base-catastral-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+.gestion-base-catastral-header .search-input {
+  max-width: 350px;
+  width: 100%;
+}
+
+.gestion-base-catastral-header .btn-agregar {
+  margin-left: 24px;
+}
+
+.gestion-base-catastral-table-container {
+  width: 100%;
+}

@@ -1,46 +1,102 @@
-.tableContainer {
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  margin: 2rem 0;
-  position: relative;
+/* Contenedor de la tabla */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 1rem 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.flexibleTable {
+/* Tabla base */
+.table-container table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.9em;
-  min-width: 600px;
+  min-width: 800px;
 }
 
-/* Estilos para th y td */
-.flexibleTable th,
-.flexibleTable td {
-  padding: 15px 20px;
+/* Fila de encabezado sin bordes */
+.table-container thead tr {
+  background-color: var(--color-verde);
+}
+
+/* Celdas del encabezado */
+.table-container th {
+  padding: 16px 20px;
   text-align: left;
-  border-bottom: 1px solid #ecf0f1;
-}
-
-/* Gradiente en encabezado */
-.flexibleTable thead tr {
-  background: linear-gradient(135deg, #2ecc71, #27ae60);
   color: white;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid var(--color-verde); /* ← borde verde */
+  background-color: var(--color-verde);
 }
 
-/* Zebra striping */
-.flexibleTable tbody tr:nth-of-type(even) {
-  background-color: #f9f9f9;
+
+/* Bordes redondeados en los extremos del encabezado */
+.table-container th:first-child {
+  border-top-left-radius: 12px;
 }
 
-/* Hover de fila */
-.flexibleTable tbody tr:hover {
-  background-color: #f1f8fe;
-  transform: translateX(5px);
+.table-container th:last-child {
+  border-top-right-radius: 12px;
+}
+
+/* Celdas del cuerpo */
+.table-container td {
+  padding: 14px 20px;
+  font-size: 14px;
+  color: #334155;
+  border: none; /* quitar líneas */
+}
+
+/* Primera columna (clave catastral) en negrita */
+.table-container td:first-child {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+/* Filas alternas (zebra style) */
+.table-container tbody tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+/* Hover suave con desplazamiento */
+.table-container tbody tr:hover {
+  background-color: #f1f5f9;
   transition: all 0.3s ease;
+  transform: translateX(5px);
 }
 
-/* Última fila más destacada */
-.flexibleTable tbody tr:last-of-type {
-  border-bottom: 2px solid #2ecc71;
+/* Acciones (botones/iconos) */
+.actions-cell {
+  display: flex;
+  gap: 8px;
+}
+
+.action-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e2e8f0;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.action-icon:hover {
+  background-color: #cbd5e1;
+  transform: scale(1.05);
+}
+
+/* Mensaje cuando no hay datos */
+.no-data {
+  text-align: center;
+  padding: 30px;
+  color: #94a3b8;
+  font-style: italic;
 }

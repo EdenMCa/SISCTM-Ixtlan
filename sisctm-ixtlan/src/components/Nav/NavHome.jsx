@@ -1,7 +1,9 @@
 import React from 'react';
-import '../../style/Nav/Nav.css'; 
+import '../../style/Nav/Nav.css';
 import logo_ixtlan from '../../assets/logo_ixtlan.png';
 import logo_mex from '../../assets/logo_mex.png';
+import UserMenu from '../../components/UserMenu/UserMenu.jsx';
+
 const Nav = () => {
   return (
     <header>
@@ -27,7 +29,10 @@ const Nav = () => {
         <button onClick={() => window.location.href = '/Catalog'}>
           Catálogos
         </button>
+        <UserMenu />
+
       </div>
+
 
       <div className="logo-right">
         <img src={logo_mex} alt="Logo México" />

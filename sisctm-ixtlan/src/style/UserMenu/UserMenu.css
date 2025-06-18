@@ -1,45 +1,118 @@
-.user-icon {
-    display: flex;
-    align-items: center;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    position: relative;
+/* src/components/UserMenu/UserMenu.css */
+
+.user-menu {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
 }
 
-.user-dropdown {
-    position: absolute;
-    top: 50px;
-    right: 0;
-    background: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    min-width: 200px;
-    z-index: 1000;
-    overflow: hidden;
-    display: none;
-    border: 1px solid #e0e0e0;
+/* Icono principal (avatar) */
+.user-menu__icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.user-menu__icon:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
 }
 
-.user-dropdown.show {
-    display: block;
+/* Dropdown */
+.user-menu__dropdown {
+  position: absolute;
+  top: 48px; /* ajusta si tu header es más alto */
+  right: 0;
+  display: none;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  min-width: 200px;
+  z-index: 1000;
+}
+.user-menu__dropdown--show {
+  display: flex;
+}
+.user-menu__dropdown button {
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 12px 16px;
+  font-size: 0.95rem;
+  color: #333;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 12px; /* <-- Añade esto para que todos los botones sean redondeados */
+  box-sizing: border-box;
+  margin-bottom: 6px; /* Espacio entre botones, opcional */
 }
 
-.user-dropdown button {
-    background: none;
-    border: none;
-    text-align: left;
-    padding: 12px 16px;
-    font-size: 0.95rem;
-    color: #333;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+.user-menu__dropdown button:last-child {
+  margin-bottom: 0;
 }
 
-.user-dropdown button:hover {
-    background-color: #f5f5f5;
-    color: #2e7d32;
+/* Hover: el color de fondo se mantiene dentro del botón y respeta el border-radius */
+.user-menu__dropdown button:hover {
+  background-color: #f5f5f5;
+  border-radius: 12px; /* Asegura que el hover también sea redondeado */
+  color: #333;
+}
+
+/* Si quieres que solo el primer y último botón tengan esquinas redondeadas: */
+.user-menu__dropdown button:first-child {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+.user-menu__dropdown button:last-child {
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+
+/* Pseudo-elementos para los iconos junto a cada opción */
+.user-menu__dropdown button::before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 8px;
+}
+
+/* Información de usuario */
+#userInfoBtn::before {
+  background-image: url('../../assets/UserMenu/usuario.svg');
+}
+#userInfoBtn:hover {
+  color: #2e7d32;
+}
+
+/* Editar perfil */
+#settingsBtn::before {
+  background-image: url('../../assets/UserMenu/configuracion.svg');
+}
+#settingsBtn:hover {
+  color: #1976d2;
+  background-color: #f5f5f5;
+}
+
+/* Cerrar sesión */
+#logoutBtn::before {
+  background-image: url('../../assets/UserMenu/salir.svg');
+  transition: background-image 0.2s ease;
+}
+#logoutBtn:hover {
+  background-color: #d32f2f;
+  color: #f5f5f5;
+}
+#logoutBtn:hover::before {
+  background-image: url('../../assets/UserMenu/salir_claro.svg');
 }
