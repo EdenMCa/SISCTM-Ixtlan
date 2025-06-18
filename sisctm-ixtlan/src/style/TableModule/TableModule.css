@@ -1,18 +1,20 @@
 /* Contenedor de la tabla */
 .table-container {
   width: 100%;
+  max-width: 100%;
   overflow-x: auto;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   margin: 1rem 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 1rem auto;
 }
 
 /* Tabla base */
 .table-container table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 800px;
+
 }
 
 /* Fila de encabezado sin bordes */
