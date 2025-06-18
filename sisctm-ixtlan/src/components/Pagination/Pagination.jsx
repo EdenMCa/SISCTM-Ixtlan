@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../../style/Pagination/Pagination.css';
+import '../../style/Pagination/Pagination.css';
 
 const Pagination = ({
   totalItems,
@@ -30,45 +30,48 @@ const Pagination = ({
   }
 
   return (
-    <div className={styles.pagination}>
+    <div className="pagination">
+      {/* Botón Anterior */}
       <button
-        className={styles.btn}
+        className="btn"
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
       >
         « Anterior
       </button>
 
+      {/* Primera página y puntos suspensivos */}
       {start > 1 && (
         <>
-          <button className={styles.btn} onClick={() => onPageChange(1)}>
-            1
-          </button>
-          {start > 2 && <span className={styles.ellipsis}>…</span>}
+          <button className="btn" onClick={() => onPageChange(1)}>1</button>
+          {start > 2 && <span className="ellipsis">…</span>}
         </>
       )}
 
+      {/* Botones de páginas dinámicas */}
       {pages.map((page) => (
         <button
           key={page}
-          className={`${styles.btn} ${page === currentPage ? styles.active : ''}`}
+          className={`btn ${page === currentPage ? 'active' : ''}`}
           onClick={() => onPageChange(page)}
         >
           {page}
         </button>
       ))}
 
+      {/* Última página y puntos suspensivos */}
       {end < totalPages && (
         <>
-          {end < totalPages - 1 && <span className={styles.ellipsis}>…</span>}
-          <button className={styles.btn} onClick={() => onPageChange(totalPages)}>
+          {end < totalPages - 1 && <span className="ellipsis">…</span>}
+          <button className="btn" onClick={() => onPageChange(totalPages)}>
             {totalPages}
           </button>
         </>
       )}
 
+      {/* Botón Siguiente */}
       <button
-        className={styles.btn}
+        className="btn"
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
       >

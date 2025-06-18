@@ -2,7 +2,6 @@ import React from 'react';
 import IconButton from '../IconButton/IconButton.jsx';
 import '../../style/TableModule/TableModule.css';
 
-
 const Table = ({ columns, data, actions }) => (
   <table className="table-container">
     <thead>
@@ -31,8 +30,6 @@ const Table = ({ columns, data, actions }) => (
                 {actions.map(({ iconSrc, alt, onClick, title, variant }, i) => (
                   <IconButton
                     key={i}
-                    iconSrc={iconSrc}
-                    alt={alt}
                     onClick={() => onClick(row)}
                     title={title}
                     variant={variant}
