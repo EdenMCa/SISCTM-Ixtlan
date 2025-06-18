@@ -8,7 +8,7 @@
 }
 
 /* Estilos para la barra de agregar y buscar */
-.gestion-base-catastral-header {
+.gestion-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -18,23 +18,23 @@
   box-sizing: border-box;
 }
 
-.gestion-base-catastral-header .search-input {
+.gestion-header .search-input {
   max-width: 350px;
   width: 100%;
 }
 
-.gestion-base-catastral-header .btn-agregar {
+.gestion-header .btn-agregar {
   margin-left: 0;
 }
 /* Fin de estilos para la barra de agregar y buscar */
 
-.gestion-base-catastral-wrapper {
+.gestion-wrapper {
   max-width: 1300px;
   margin: 0 auto;
   padding: 0 16px;
 }
 
-.gestion-base-catastral-header {
+.gestion-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -42,15 +42,16 @@
   width: 100%;
 }
 
-.gestion-base-catastral-header .search-input {
+.gestion-header .search-input {
   max-width: 350px;
   width: 100%;
 }
 
-.gestion-base-catastral-header .btn-agregar {
+.gestion-header .btn-agregar {
   margin-left: 24px;
 }
 
-.gestion-base-catastral-table-container {
-  width: 100%;
+.gestion-table-container {
+  width: 990%;
+  overflow-x: auto; /* Para permitir scroll horizontal si se desborda */
 }

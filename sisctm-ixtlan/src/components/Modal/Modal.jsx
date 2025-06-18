@@ -9,12 +9,15 @@ const Modal = ({
   children,
   onConfirm,
   onCancel,
-  confirmDisabled = false
+  confirmText = "Aceptar",  // nuevo
+  cancelText = "Cancelar",  // nuevo
+  confirmDisabled = false,
+  customClass = ""
 }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="modal-overlay">
+    <div className={`modal-overlay ${customClass}`}>
       <div className="modal-content">
         <header className="modal-header">
           <h3 className="modal-title">{title}</h3>
@@ -24,8 +27,12 @@ const Modal = ({
           {children}
         </div>
         <footer className="modal-footer">
-          <CancelButton onClick={onCancel} />
-          <AcceptButton onClick={onConfirm} disabled={confirmDisabled} />
+          <CancelButton onClick={onCancel}>
+            {cancelText}
+          </CancelButton>
+          <AcceptButton onClick={onConfirm} disabled={confirmDisabled}>
+            {confirmText}
+          </AcceptButton>
         </footer>
       </div>
     </div>
